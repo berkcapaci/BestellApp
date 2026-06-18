@@ -1,0 +1,22 @@
+.pizza-card {
+    margin-bottom: 16px ;
+}
+
+.pizza-image{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.pizza-info {
+    padding: ;
+}
+
+.pizza-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button{
+
+}
