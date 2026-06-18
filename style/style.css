@@ -20,3 +20,33 @@
 .add-button{
 
 }
+
+.basket-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+#order-dialog {
+    position: fixed;
+    inset: 0;
+    background-color:  rgba (0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-content {
+    width: 415px;
+    min-height: 269px;
+    background-color: white;
+    padding: 32px 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+}
+
+.d-none{
+    display: none !important;
+}

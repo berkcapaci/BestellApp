@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzeria Capaci</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/basic.css">
 </head>
 <body>
     <header>
@@ -23,6 +25,16 @@
         <div>Imprint</div>
         <div>Cookie Preferences</div>
     </footer>
+
+    <div id="order-dialog" class="d-none" onclick="closeOrderDialog()">
+        <div class="dialog-content" onclick="event.stopPropagation()">
+            <img src="assets/img/order_confirmed.jpg" alt="Order Confirmed">
+            <h2>Order confirmed!</h2>
+            <p>Your food is on the way!</p>
+            <button onclick="closeOrderDialog()">Close</button>
+        </div>
+    </div>
+
     <script src="script/data.js"></script>
     <script src="script/templates.js"></script>
     <script src="script.js"></script>
