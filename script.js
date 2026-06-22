@@ -44,6 +44,42 @@ function renderBasket(){
 renderPizzas();
 renderBasket();
 
+function addToBasket(id){
+
+    let basketItem = basket.find(item => item.id === id);
+
+    if (basketItem) {
+        basketItem.amount++;
+    } else {
+        basket.push({
+            id: id,
+            amount : 1
+        });
+    }
+    renderBasket();    
+}
+
+function increaseAmount(id){
+    let basketItem = basket.find(item => item.id === id);
+
+    if (basketItem) {
+        basketItem.amount++;
+    }
+    renderBasket();
+}
+
+function decreaseAmount(id){
+    let basketItem = basket.find(item => item.id === id);
+
+    if (basketItem.amount > 1) {
+        basketItem.amount--;
+    } else {
+        let index = basket.findIndex(item => item.id === id);
+        basket.splice(index, 1);
+    }
+    renderBasket();
+}
+
 function orderNow(){
     basket= [];
     renderBasket();

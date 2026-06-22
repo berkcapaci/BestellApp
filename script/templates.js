@@ -14,20 +14,6 @@ function getPizzaTemplate (currentPizza) {
     `;
 }
 
-function addToBasket(id){
-
-    let basketItem = basket.find(item => item.id === id);
-
-    if (basketItem) {
-        basketItem.amount++;
-    } else {
-        basket.push({
-            id: id,
-            amount : 1
-        });
-    }
-    renderBasket();    
-}
 
 function getBasketTemplate(){
     return `
@@ -41,8 +27,16 @@ function getBasketItemTemplate (currentBasketItem, pizzaData){
 
     return`
         <div class="basket-item">
-            <span>${currentBasketItem.amount}x ${pizzaData.name}</span>
-            <span>${totalPrice.toFixed(2)} €</span>
+            <div class="basket-title">${currentBasketItem.amount} x ${pizzaData.name}</div>
+            <div class="basket-footer">
+                <div class="basket-controls">
+                    <button onclick="decreaseAmount(${currentBasketItem.id})">-</button>
+                    <span>${currentBasketItem.amount}</span>
+                    <button onclick="increaseAmount(${currentBasketItem.id})">+</button>
+                </div>      
+                <span class="basket-price">${totalPrice.toFixed(2)} €</span>    
+            </div>    
+            
         </div>
     `;
 }
@@ -58,24 +52,26 @@ function getBasketSubtotalTemplate (subtotal){
 
 function getBasketSummaryTemplate (subtotal, deliveryCost, totalPrice){
     return`
-        <div class="basket-item">
-            <span>Subtotal</span>
-            <span>${subtotal.toFixed(2)} €</span>
-        </div>   
-        <div class="basket-item">
-            <span>Delivery</span>
-            <span>${deliveryCost.toFixed(2)} €</span>
-        </div>   
-        <div class="basket-item">
-            <span>Total</span>
-            <span>${totalPrice.toFixed(2)} €</span>
-        </div>   
+        <div class="basket-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>${subtotal.toFixed(2)} €</span>
+            </div>   
+            <div class="summary-row">
+                <span>Delivery</span>
+                <span>${deliveryCost.toFixed(2)} €</span>
+            </div>   
+            <div class="summary-row total-row ">
+                <span>Total</span>
+                <span>${totalPrice.toFixed(2)} €</span>
+            </div>
+        </div>
     `;
 }
 
 function getBuyNowButtonTemplate(){
     return `
-        <button onclick="orderNow()">
+        <button class="buy-now-btn" onclick="orderNow()">
         Buy Now
         </button>
     `;
