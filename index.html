@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="style/font.css" />
     <link rel="stylesheet" href="style/basic.css" />
     <link rel="stylesheet" href="style/mediaquery.css" />
-    <link rel="shortcut icon" href="assets/img/pizzakoch.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="assets/img/pizzakoch.png"
+      type="image/x-icon"
+    />
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <div class="content-wrapper">
         <img src="assets/icons/Logo.png" alt="Logo" />
@@ -64,26 +68,30 @@
     </footer>
     <nav class="mobile-nav">
       <div class="mobile-nav-item" onclick="showMenu()">
-        <img src="assets/icons/home.png" alt="Home" />
-      </div>
-
-      <div class="mobile-nav-item active" onclick="toggleMobileBasket()">
-        <img src="assets/icons/basket.png" alt="Basket" />
-        <span class="basket-badge">0</span>
-      </div>
-
-      <div class="mobile-nav-item" onclick="scrollToMenu()">
-        <img src="assets/icons/menu.png" alt="Menu" />
+        <img src="assets/icons/home.svg" alt="Home" />
       </div>
 
       <div class="mobile-nav-item" onclick="showProfile()">
-        <img src="assets/icons/profile.png" alt="Profile" />
+        <img src="assets/icons/profile.svg" alt="Profile" />
+      </div>
+
+      <div class="mobile-nav-item" onclick="scrollToMenu()">
+        <img src="assets/icons/menu.svg" alt="Menu" />
+      </div>
+
+      <div class="mobile-nav-item active" onclick="toggleMobileBasket()">
+        <img src="assets/icons/basket.svg" alt="Basket" />
+        <span class="basket-badge">0</span>
       </div>
     </nav>
     <div id="order-dialog" class="d-none" onclick="closeOrderDialog()">
       <div class="dialog-content" onclick="event.stopPropagation()">
+        <button class="close-dialog-btn" onclick="closeOrderDialog()">✕</button>
+
         <img src="assets/img/order_confirmed.jpg" alt="Order confirmed" />
+
         <h2>Thank you for your order!</h2>
+
         <p>Your pizza is being prepared.</p>
       </div>
     </div>

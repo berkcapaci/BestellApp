@@ -9,11 +9,16 @@
     }
 
     #basket-content.mobile-open {
-        display: block;
         width: 100%;
-        display: block;
+        max-height: calc(100vh - 72px);
+        align-self: auto;
+        display: flex;
+        flex-direction: column;
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 72px;
         background-color: #363534;
         z-index: 200;
         overflow-y: auto;
@@ -47,6 +52,16 @@
     #basket-content.mobile-open .total-row {
         font-weight: 700;
         margin-top: 16px;
+    }
+
+    #basket-content.mobile-open .empty-basket .mobile-basket-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    }
+
+    .mobile-basket-close {
+        display: block;
     }
 
     header .content-wrapper {
@@ -145,7 +160,7 @@
         right: 0;
         height: 72px;
         background-color: #363534;
-        z-index: 100;
+        z-index: 500;
     }
 
      #basket-content {

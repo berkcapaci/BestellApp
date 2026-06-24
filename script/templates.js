@@ -30,39 +30,67 @@ function getPizzaTemplate(currentPizza) {
 function getBasketTemplate(){
     return `
     <div class="empty-basket">
+        <div class="basket-header">
             <h2>Your Basket</h2>
-
-            <p>
-                Nothing here yet.<br>
-                Go ahead and choose something delicious!
-            </p>
-            <img src="assets/icons/empty_basket.png" alt="Empty Basket Icon">
+            <button
+                class="mobile-basket-close"
+                onclick="showMenu()">
+                ✕
+            </button>
+        </div>
+        <p>
+            Nothing here yet.<br>
+            Go ahead and choose something delicious!
+        </p>
+        <img src="assets/icons/empty_basket.png" alt="Empty Basket Icon">
     </div>
     `;
 }
 
-function getBasketItemTemplate(currentBasketItem, pizzaData) {
-    let totalPrice = currentBasketItem.amount * pizzaData.price;
-
+function getBasketItemTemplate(
+    currentBasketItem,
+    pizzaData,
+    itemTotalPrice
+) {
     return `
         <div class="basket-item">
             <div class="basket-item-header">
                 <span>${pizzaData.name}</span>
+
                 <button
                     class="delete-btn"
                     onclick="deleteItem(${pizzaData.id})">
+
                     <img src="assets/icons/delete.png" alt="Delete">
                 </button>
             </div>
+
             <div class="basket-item-footer">
                 <div class="basket-controls">
                     <button onclick="decreaseAmount(${pizzaData.id})">-</button>
+
                     <span>${currentBasketItem.amount}</span>
+
                     <button onclick="increaseAmount(${pizzaData.id})">+</button>
                 </div>
-                <span>${totalPrice.toFixed(2)} €</span>
+
+                <span>${itemTotalPrice.toFixed(2)} €</span>
             </div>
         </div>
+    `;
+}
+
+function getBasketHeaderTemplate() {
+    return `
+        <div class="basket-header">
+            <h2>Your Basket</h2>
+            <button
+                class="mobile-basket-close"
+                onclick="showMenu()">
+                ✕
+            </button>
+        </div>
+        <div id="basket-list"></div>
     `;
 }
 

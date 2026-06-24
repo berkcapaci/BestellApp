@@ -2,7 +2,18 @@ let basket = [];
 
 let pizzaContentRef = document.getElementById('pizza-content');
 
-let basketContentRef = document.getElementById('basket-content')
+let basketContentRef = document.getElementById('basket-content');
+
+function init() {
+    pizzaContentRef =
+        document.getElementById('pizza-content');
+
+    basketContentRef =
+        document.getElementById('basket-content');
+
+    renderPizzas();
+    renderBasket();
+}
 
 function renderPizzas(){
     pizzaContentRef.innerHTML ='';
@@ -12,37 +23,54 @@ function renderPizzas(){
     }
 }
 
-function renderBasket(){
-    if (basket.length === 0){
-    basketContentRef.innerHTML = getBasketTemplate();
-    } else {
-        basketContentRef.innerHTML = `
-            <h2>Your Basket</h2>
-            <div id="basket-list"></div>
-        `;
-        let basketItemsRef = document.getElementById('basket-list');
-        let subtotal = 0;
-        
-        for (let i = 0; i < basket.length; i++) {
-            let currentBasketItem = basket[i];
-            let pizzaData = pizzas.find(
-                pizza => pizza.id ===currentBasketItem.id
-            );
-            subtotal += currentBasketItem.amount * pizzaData.price;
-             basketItemsRef.innerHTML += getBasketItemTemplate(
-                currentBasketItem,
-                pizzaData
-            );
-        }
-        let deliveryCost = 5.00 ;
-        if (subtotal>=49.99){
-            deliveryCost = 0;
-        }
-        let totalPrice = subtotal + deliveryCost;
-        basketContentRef.innerHTML += getBasketSummaryTemplate(
-            subtotal, deliveryCost , totalPrice
+function renderBasketItems(basketItemsRef) {
+    let subtotal = 0;
+    for (let i = 0; i < basket.length; i++) {
+        let currentBasketItem = basket[i];
+        let pizzaData = pizzas.find(
+            pizza => pizza.id === currentBasketItem.id
         );
-        basketContentRef.innerHTML += getBuyNowButtonTemplate();
+        let itemTotalPrice =
+            currentBasketItem.amount * pizzaData.price;
+        subtotal += itemTotalPrice;
+        basketItemsRef.innerHTML += getBasketItemTemplate(
+            currentBasketItem,
+            pizzaData,
+            itemTotalPrice
+        );
+    }
+    return subtotal;
+}
+
+function getDeliveryCost(subtotal) {
+    if (subtotal >= 49.99) {
+        return 0;
+    }
+    return 5.00;
+}
+
+function renderBasket() {
+    if (basket.length === 0) {
+        basketContentRef.innerHTML = getBasketTemplate();
+    } else {
+        basketContentRef.innerHTML =
+            getBasketHeaderTemplate();
+        let basketItemsRef =
+            document.getElementById('basket-list');
+        let subtotal =
+            renderBasketItems(basketItemsRef);
+        let deliveryCost =
+            getDeliveryCost(subtotal);
+        let finalPrice =
+            subtotal + deliveryCost;
+        basketContentRef.innerHTML +=
+            getBasketSummaryTemplate(
+                subtotal,
+                deliveryCost,
+                finalPrice
+            );
+        basketContentRef.innerHTML +=
+            getBuyNowButtonTemplate();
     }
     updateBasketBadge();
 }
@@ -65,32 +93,38 @@ function addToBasket(id){
     renderBasket();    
 }
 
-function increaseAmount(id) {
+function updateBasketItem(id, callback) {
     let basketList = document.getElementById('basket-list');
     let scrollPosition = basketList ? basketList.scrollTop : 0;
+
     let basketItem = basket.find(item => item.id === id);
     if (basketItem) {
-        basketItem.amount++;
-    }
-    renderBasket();
-    document.getElementById('basket-list').scrollTop = scrollPosition;
-}
-
-function decreaseAmount(id) {
-    let basketList = document.getElementById('basket-list');
-    let scrollPosition = basketList ? basketList.scrollTop : 0;
-    let basketItem = basket.find(item => item.id === id);
-    if (basketItem.amount > 1) {
-        basketItem.amount--;
-    } else {
-        let index = basket.findIndex(item => item.id === id);
-        basket.splice(index, 1);
+        callback(basketItem);
     }
     renderBasket();
     let newBasketList = document.getElementById('basket-list');
     if (newBasketList) {
         newBasketList.scrollTop = scrollPosition;
     }
+}
+
+function increaseAmount(id) {
+    updateBasketItem(id, basketItem => {
+        basketItem.amount++;
+    });
+}
+
+function decreaseAmount(id) {
+    updateBasketItem(id, basketItem => {
+        if (basketItem.amount > 1) {
+            basketItem.amount--;
+        } else {
+            let index = basket.findIndex(
+                item => item.id === id
+            );
+            basket.splice(index, 1);
+        }
+    });
 }
 
 function orderNow(){
@@ -115,16 +149,18 @@ function closeOrderDialog(){
 }
 
 function toggleMobileBasket() {
-    let basket = document.getElementById('basket-content');
-    let pizzaContent = document.getElementById('pizza-content');
-
-    basket.classList.toggle('mobile-open');
-    pizzaContent.classList.toggle('d-none');
+    if (basketContentRef.classList.contains('mobile-open')) {
+        basketContentRef.classList.remove('mobile-open');
+        pizzaContentRef.classList.remove('d-none');
+    } else {
+        basketContentRef.classList.add('mobile-open');
+        pizzaContentRef.classList.add('d-none');
+    }
 }
 
 function showMenu() {
-    document.getElementById('pizza-content').classList.remove('d-none');
-    document.getElementById('basket-content').classList.remove('mobile-open');
+    pizzaContentRef.classList.remove('d-none');
+    basketContentRef.classList.remove('mobile-open');
 }
 
 function scrollToMenu() {
@@ -143,8 +179,6 @@ function updateBasketBadge() {
     document.querySelector('.basket-badge').innerHTML = totalAmount;
 }
 
-
-
 function deleteItem(id) {
     let basketItemIndex = basket.findIndex(
         currentBasketItem => currentBasketItem.id === id
@@ -154,3 +188,13 @@ function deleteItem(id) {
 
     renderBasket();
 }
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.getElementById('basket-content')
+            .classList.remove('mobile-open');
+
+        document.getElementById('pizza-content')
+            .classList.remove('d-none');
+    }
+});
