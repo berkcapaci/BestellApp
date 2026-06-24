@@ -1,0 +1,58 @@
+@media (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    .mobile-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 72px;
+        background-color: #363534;
+        z-index: 100;
+    }
+
+    #basket-content {
+        display: none;
+    }
+
+    header {
+    height: 96px;
+    padding: 0 16px;
+    }
+
+    .hero-banner {
+    height: 180px;
+    }
+
+    .restaurant-profile img {
+    width: 90px;
+    height: 90px;
+    }
+
+    .restaurant-info {
+    padding: 0 16px 16px;
+    }
+
+    .pizza-image {
+    width: 90px;
+    height: 90px;
+    }
+
+    .pizza-top-row h2 {
+    font-size: 18px;
+    }
+
+    .pizza-price {
+    font-size: 16px;
+    }
+
+    .pizza-card {
+    padding: 8px;
+    }
+}

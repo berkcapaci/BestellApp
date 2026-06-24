@@ -2,7 +2,7 @@ const pizzas = [
     {
         id: 1,
         name: "Salami",
-        description: "Tomatensauce, Mozzarella und Salami",
+        description: "Tomato sauce, mozzarella and salami",
         price: 11.90,
         image: "salami.jpg",
         vegetarian: false
@@ -10,7 +10,7 @@ const pizzas = [
     {
         id: 2,
         name: "Prosciutto",
-        description: "Tomatensauce, Mozzarella und Kochschinken",
+        description: "Tomato sauce, mozzarella and cooked ham",
         price: 12.90,
         image: "prosciutto.jpg",
         vegetarian: false
@@ -18,7 +18,7 @@ const pizzas = [
     {
         id: 3,
         name: "Tonno",
-        description: "Tomatensauce, Mozzarella, Thunfisch und Zwiebeln",
+        description: "Tomato sauce, mozzarella, tuna and onions",
         price: 12.50,
         image: "tonno.jpg",
         vegetarian: false
@@ -26,7 +26,7 @@ const pizzas = [
     {
         id: 4,
         name: "Hawaii",
-        description: "Tomatensauce, Mozzarella, Schinken und Ananas",
+        description: "Tomato sauce, mozzarella, ham and pineapple",
         price: 12.90,
         image: "hawaii.jpg",
         vegetarian: false
@@ -34,7 +34,7 @@ const pizzas = [
     {
         id: 5,
         name: "Diavola",
-        description: "Tomatensauce, Mozzarella und scharfe Salami",
+        description: "Tomato sauce, mozzarella and spicy salami",
         price: 13.50,
         image: "diavola.jpg",
         vegetarian: false
@@ -42,7 +42,7 @@ const pizzas = [
     {
         id: 6,
         name: "BBQ Chicken",
-        description: "BBQ-Sauce, Mozzarella und Hähnchenbrust",
+        description: "BBQ sauce, mozzarella and chicken breast",
         price: 14.50,
         image: "bbq_chicken.jpg",
         vegetarian: false
@@ -50,7 +50,7 @@ const pizzas = [
     {
         id: 7,
         name: "Sucuk",
-        description: "Tomatensauce, Mozzarella und Sucuk",
+        description: "Tomato sauce, mozzarella and sucuk",
         price: 13.90,
         image: "sucuk.jpg",
         vegetarian: false
@@ -58,7 +58,7 @@ const pizzas = [
     {
         id: 8,
         name: "Quattro Stagioni",
-        description: "Tomatensauce, Mozzarella, Schinken, Pilze und Artischocken",
+        description: "Tomato sauce, mozzarella, ham, mushrooms and artichokes",
         price: 14.90,
         image: "quattro_stagioni.jpg",
         vegetarian: false
@@ -66,7 +66,7 @@ const pizzas = [
     {
         id: 9,
         name: "Margherita",
-        description: "Tomatensauce und Mozzarella",
+        description: "Tomato sauce and mozzarella",
         price: 9.90,
         image: "margherita.jpg",
         vegetarian: true
@@ -74,7 +74,7 @@ const pizzas = [
     {
         id: 10,
         name: "Funghi",
-        description: "Tomatensauce, Mozzarella und frische Champignons",
+        description: "Tomato sauce, mozzarella and fresh mushrooms",
         price: 10.90,
         image: "funghi.jpg",
         vegetarian: true
@@ -82,7 +82,7 @@ const pizzas = [
     {
         id: 11,
         name: "Spinaci",
-        description: "Tomatensauce, Mozzarella und Blattspinat",
+        description: "Tomato sauce, mozzarella and spinach",
         price: 11.50,
         image: "spinaci.jpg",
         vegetarian: true
@@ -90,7 +90,7 @@ const pizzas = [
     {
         id: 12,
         name: "Caprese",
-        description: "Tomatensauce, Mozzarella, Tomaten und Basilikum",
+        description: "Tomato sauce, mozzarella, tomatoes and basil",
         price: 11.90,
         image: "caprese.jpg",
         vegetarian: true
@@ -98,7 +98,7 @@ const pizzas = [
     {
         id: 13,
         name: "Vegetaria",
-        description: "Tomatensauce, Mozzarella und frisches Gemüse",
+        description: "Tomato sauce, mozzarella and fresh vegetables",
         price: 12.90,
         image: "vegetaria.jpg",
         vegetarian: true
@@ -106,7 +106,7 @@ const pizzas = [
     {
         id: 14,
         name: "Quattro Formaggi",
-        description: "Mozzarella, Gorgonzola, Parmesan und Gouda",
+        description: "Mozzarella, gorgonzola, parmesan and gouda",
         price: 13.90,
         image: "quattro_formaggi.jpg",
         vegetarian: true
@@ -114,7 +114,7 @@ const pizzas = [
     {
         id: 15,
         name: "Rucola",
-        description: "Tomatensauce, Mozzarella, Rucola und Parmesan",
+        description: "Tomato sauce, mozzarella, arugula and parmesan",
         price: 12.90,
         image: "rucola.jpg",
         vegetarian: true
@@ -122,7 +122,7 @@ const pizzas = [
     {
         id: 16,
         name: "Mediterranea",
-        description: "Tomatensauce, Mozzarella, Oliven, Paprika und Feta",
+        description: "Tomato sauce, mozzarella, olives, bell peppers and feta",
         price: 13.50,
         image: "mediterranea.jpg",
         vegetarian: true

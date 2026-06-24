@@ -1,24 +1,41 @@
-function getPizzaTemplate (currentPizza) {
+function getPizzaTemplate(currentPizza) {
     return `
         <div class="pizza-card">
-            <img class="pizza-image" src="assets/img/${currentPizza.image}" alt="${currentPizza.name}">
+            <img
+                class="pizza-image"
+                src="assets/img/${currentPizza.image}"
+                alt="${currentPizza.name}"
+            >
             <div class="pizza-info">
-                <div class="pizza-header"> 
+                <div class="pizza-top-row">
                     <h2>${currentPizza.name}</h2>
-                    <button class="add-button" onclick="addToBasket(${currentPizza.id})">+</button>
-                </div>    
+                    <span class="pizza-price">
+                        ${currentPizza.price.toFixed(2)} €
+                    </span>
+                </div>
                 <p>${currentPizza.description}</p>
-                <span>${currentPizza.price.toFixed(2)} €</span>
-            </div>    
-        </div>    
+                <div class="pizza-actions">
+                    <button class="add-button" onclick="addToBasket(${currentPizza.id})">
+                        Add to basket
+                    </button>
+                </div>
+            </div>
+        </div>
     `;
 }
 
 
 function getBasketTemplate(){
     return `
-        <h2> Your Basket </h2>    
-        <p> Basket is empty </p>
+    <div class="empty-basket">
+            <h2>Your Basket</h2>
+
+            <p>
+                Nothing here yet.<br>
+                Go ahead and choose something delicious!
+            </p>
+            <img src="assets/icons/empty_basket.png" alt="Empty Basket Icon">
+    </div>
     `;
 }
 

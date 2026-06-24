@@ -7,22 +7,101 @@ main {
     display: flex;
     max-width: 1440px;
     margin: 0 auto;
+    gap: 24px;
 }
 
-.header{
+.content-wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+header{
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
     background-color: #E76C1F;
+    position: relative;
+    z-index: 2;
+}
+
+header img {
+    height: 38px;
+}
+
+.menu-icon{
+    height: 35px;
+}
+
+.hero-banner {
+    height: 250px;
+    overflow: hidden;
+    margin-top: -32px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restaurant-info {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px 24px;
+    text-align: center;
+}
+
+.restaurant-info h1{
+    font-family: 'Palanquin Dark';
+    font-weight: 700;
+}
+
+.restaurant-info p {
+    font-family: 'Palanquin';
+    font-weight: 700;
+}
+
+.restaurant-profile {
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+}
+
+.restaurant-meta{
+    font-family: 'Palanquin Dark';
+    font-weight: 400;
+}
+
+.restaurant-profile img {
+    width: 120px;
+    height: 120px;
+    background-color:#e5e5e5;
+    border-radius: 50%;
+    border: 6px solid white;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
 }
 
 .pizza-card {
     display: flex;
+    align-items: flex-start;
     border: 1px solid #e5e5e5;
-    margin-bottom: 16px ;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
 }
 
 .pizza-image{
-    width: 100%;
-    height: 300px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 .pizza-info {
@@ -30,14 +109,51 @@ main {
     padding: 16px;
 }
 
-.pizza-header {
+.pizza-top-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 8px;
 }
 
-.add-button{
+.pizza-top-row h2 {
+    font-family: 'Palanquin';
+    font-weight: 600;
+    margin: 0;
+}
 
+.pizza-info p {
+    font-family: 'Palanquin';
+    font-weight: 500;
+    margin: 0;
+    color: #555;
+}
+
+.pizza-price {
+    font-family: 'Palanquin';
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.pizza-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.add-button {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #E76C1F;
+    color: white;
+    font-family: 'Palanquin';
+    font-weight: 600;
+}
+
+.add-button:hover {
+    opacity: 0.9;
 }
 
 #pizza-content {
@@ -49,6 +165,43 @@ main {
     position: sticky;
     top: 16px;
     align-self: flex-start;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 16px;
+}
+
+.empty-basket{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FDEADC;
+    background-color: #363534;
+    border-radius: 24px;
+    padding: 32px;
+    min-height: 600px;
+}
+
+.empty-basket img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.empty-basket h2 {
+    font-family: 'Palanquin Dark';
+    font-size: 28px;
+    margin-bottom: 48px;
+}
+
+.empty-basket p {
+    font-family: 'Palanquin';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 64px;
 }
 
 .basket-item{
@@ -144,4 +297,33 @@ main {
 
 .d-none{
     display: none !important;
+}
+
+footer {
+    display: flex;
+    min-height: 128px;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 32px;
+    gap: 72px;
+    background-color: #E76C1F;
+    color: white;
+    font-family: 'Palanquin';
+    font-weight: 400 ;
+}
+
+.copyright{
+    display: flex;
+    width: 180px;
+    align-items: center;
+    gap: 8px;
+}
+
+.copyright img{
+    height: 20px;
+    width: 20px;
+}
+
+.mobile-nav{
+    display: none;
 }

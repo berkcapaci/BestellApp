@@ -1,45 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizzeria Capaci</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/font.css">
-    <link rel="stylesheet" href="style/basic.css">
-</head>
-<body>
-    <header>
-        <img src="assets/img/pizzakoch.png" alt="Logo">
-        <img src="assets/icons/menubar.png" alt="Menu icon, no function">
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/font.css" />
+    <link rel="stylesheet" href="style/basic.css" />
+    <link rel="stylesheet" href="style/mediaquery.css" />
+  </head>
+  <body>
+    <header class="content-wrapper">
+      <img src="assets/icons/Logo.png" alt="Logo" />
+      <img
+        class="menu-icon"
+        src="assets/icons/menubar.png"
+        alt="Menu icon, no function"
+      />
     </header>
-    <main>
-        <section id="pizza-content"></section>
-        <aside id="basket-content"></aside>
-    </main>
-    <footer>
-        <div>
-            <img src="assets/icons/copyright.png" alt="Copyright">
-            <p>2026 Pizzeria Capaci</p>
-        </div>
-        <div>Imprint</div>
-        <div>Cookie Preferences</div>
-    </footer>
-
-    <div id="order-dialog" class="d-none" onclick="closeOrderDialog()">
-        <div class="dialog-content" onclick="event.stopPropagation()">
-            <img src="assets/img/order_confirmed.jpg" alt="Order Confirmed">
-            <h2>Order confirmed!</h2>
-            <p>Your food is on the way!</p>
-            <button onclick="closeOrderDialog()">Close</button>
-        </div>
+    <div class="hero-banner">
+      <div class="content-wrapper">
+        <img src="assets/img/hero_photo.jpg" alt="Welcome Page Image" />
+      </div>
     </div>
+    <section class="restaurant-info">
+      <div class="restaurant-profile">
+        <img src="assets/img/pizzakoch.png" alt="Pizzeria Capaci" />
+      </div>
+      <h1>Pizzeria Capaci</h1>
+      <div class="restaurant-meta">
+        <span>⭐ 4.8</span>
+        <span>(797 Rating)</span>
+      </div>
+      <p>Authentic Italian pizza</p>
+    </section>
+
+    <main class="content-wrapper">
+      <section id="pizza-content"></section>
+      <aside id="basket-content"></aside>
+    </main>
+    <footer class="content-wrapper">
+      <div class="copyright">
+        <img src="assets/icons/copyright.png" alt="Copyright" />
+        <p>2026 PizzeriaCapaci</p>
+      </div>
+      <div>Imprint</div>
+      <div>Cookie Preferences</div>
+    </footer>
+    <nav class="mobile-nav">
+      <div class="mobile-nav-item">Home</div>
+      <div class="mobile-nav-item">Basket</div>
+      <div class="mobile-nav-item">Menu</div>
+      <div class="mobile-nav-item">Profile</div>
+    </nav>
 
     <script src="script/data.js"></script>
     <script src="script/templates.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-
 
 <p class=""></p>
