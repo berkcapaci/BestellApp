@@ -43,6 +43,7 @@ function renderBasket(){
             subtotal, deliveryCost , totalPrice
         );
         basketContentRef.innerHTML += getBuyNowButtonTemplate();
+        updateBasketBadge();
     }
 }
 
@@ -132,3 +133,12 @@ function scrollToMenu() {
 
 function showProfile() { alert('Profile page coming soon'); }
 
+function updateBasketBadge() {
+    let totalAmount = 0;
+
+    for (let i = 0; i < basket.length; i++) {
+        totalAmount += basket[i].amount;
+    }
+
+    document.querySelector('.basket-badge').innerHTML = totalAmount;
+}
