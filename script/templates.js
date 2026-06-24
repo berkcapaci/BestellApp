@@ -8,7 +8,10 @@ function getPizzaTemplate(currentPizza) {
             >
             <div class="pizza-info">
                 <div class="pizza-top-row">
-                    <h2>${currentPizza.name}</h2>
+                    <h2>
+                        ${currentPizza.name}
+                        ${currentPizza.vegetarian ? '🌱' : ''}
+                    </h2>
                     <span class="pizza-price">
                         ${currentPizza.price.toFixed(2)}€
                     </span>

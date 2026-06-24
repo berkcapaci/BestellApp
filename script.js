@@ -15,12 +15,33 @@ function init() {
     renderBasket();
 }
 
-function renderPizzas(){
-    pizzaContentRef.innerHTML ='';
+function renderPizzaCategory(title, isVegetarian) {
+    pizzaContentRef.innerHTML += `
+        <h3 class="pizza-category">${title}</h3>
+    `;
+
     for (let i = 0; i < pizzas.length; i++) {
         let currentPizza = pizzas[i];
-        pizzaContentRef.innerHTML += getPizzaTemplate(currentPizza);
+
+        if (currentPizza.vegetarian === isVegetarian) {
+            pizzaContentRef.innerHTML +=
+                getPizzaTemplate(currentPizza);
+        }
     }
+}
+
+function renderPizzas() {
+    pizzaContentRef.innerHTML = '';
+
+    renderPizzaCategory(
+        '🌱 Vegetarian',
+        true
+    );
+
+    renderPizzaCategory(
+        '🍕 Classic Pizzas',
+        false
+    );
 }
 
 function renderBasketItems(basketItemsRef) {

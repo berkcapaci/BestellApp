@@ -1,3 +1,6 @@
+/* =========================
+   GLOBAL
+========================= */
 *{
     margin: 0;
     box-sizing: border-box;
@@ -15,6 +18,10 @@ main {
     margin: 0 auto;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
     background-color: #E76C1F;
     position: relative;
@@ -22,8 +29,6 @@ header{
 }
 
 header .content-wrapper{
-    max-width: 1440px;
-    margin: 0 auto;
     height: 128px;
     display: flex;
     align-items: center;
@@ -39,6 +44,10 @@ header img {
     height: 35px;
 }
 
+/* =========================
+   HERO BANNER
+========================= */
+
 .hero-banner {
     height: 250px;
     overflow: hidden;
@@ -52,6 +61,10 @@ header img {
     height: 100%;
     object-fit: cover;
 }
+
+/* =========================
+   RESTAURANT INFO
+========================= */
 
 .restaurant-info {
     max-width: 1440px;
@@ -93,6 +106,10 @@ header img {
     z-index: 2;
 }
 
+/* =========================
+   MENU BANNER
+========================= */
+
 .menu-banner {
     background-color: #E76C1F;
 }
@@ -117,6 +134,24 @@ header img {
     font-family: 'Palanquin Dark';
     font-size: 32px;
     margin: 0;
+}
+
+/* =========================
+   PIZZA SECTION
+========================= */
+
+#pizza-content {
+    flex: 1;
+}
+
+.pizza-category {
+    background-color: #f0945d;
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin: 24px 0 16px 0;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .pizza-card {
@@ -184,33 +219,13 @@ header img {
     font-weight: 600;
 }
 
-.delete-btn {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.delete-btn img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-}
-
-.delete-btn:hover {
-    transform: scale(1.1);
-}
-
 .add-button:hover {
     opacity: 0.9;
 }
 
-#pizza-content {
-    flex: 1;
-}
+/* =========================
+   BASKET
+========================= */
 
 #basket-content {
     width: 435px;
@@ -379,6 +394,30 @@ header img {
     opacity: 0.9;
 }
 
+.delete-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+/* =========================
+   ORDER DIALOG
+========================= */
+
 #order-dialog {
     position: fixed;
     inset: 0;
@@ -408,17 +447,30 @@ header img {
     object-fit: contain;
 }
 
+.close-dialog-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    border: none;
+    color: black;
+    background: white;
+    z-index: 1000;
+}
+
 .d-none{
     display: none !important;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background-color: #E76C1F;
 }
 
 footer .content-wrapper{
-    max-width: 1440px;
-    margin: 0 auto;
     display: flex;
     min-height: 128px;
     justify-content: center;
@@ -441,6 +493,10 @@ footer .content-wrapper{
     height: 20px;
     width: 20px;
 }
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
 
 .mobile-nav{
     display: none;
@@ -469,19 +525,4 @@ footer .content-wrapper{
     color: white;
     font-size: 12px;
     font-weight: 700;
-}
-
-.order-dialog-content {
-    position: relative;
-}
-
-.close-dialog-btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 24px;
-    border: 1px solid red;
-    color: black;
-    background: white;
-    z-index: 1000;
 }
