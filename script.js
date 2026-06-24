@@ -43,8 +43,8 @@ function renderBasket(){
             subtotal, deliveryCost , totalPrice
         );
         basketContentRef.innerHTML += getBuyNowButtonTemplate();
-        updateBasketBadge();
     }
+    updateBasketBadge();
 }
 
 renderPizzas();
@@ -141,4 +141,16 @@ function updateBasketBadge() {
     }
 
     document.querySelector('.basket-badge').innerHTML = totalAmount;
+}
+
+
+
+function deleteItem(id) {
+    let basketItemIndex = basket.findIndex(
+        currentBasketItem => currentBasketItem.id === id
+    );
+
+    basket.splice(basketItemIndex, 1);
+
+    renderBasket();
 }

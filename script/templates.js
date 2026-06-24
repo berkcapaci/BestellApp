@@ -41,21 +41,27 @@ function getBasketTemplate(){
     `;
 }
 
-function getBasketItemTemplate (currentBasketItem, pizzaData){
-    let totalPrice = currentBasketItem.amount * pizzaData.price ;
+function getBasketItemTemplate(currentBasketItem, pizzaData) {
+    let totalPrice = currentBasketItem.amount * pizzaData.price;
 
-    return`
+    return `
         <div class="basket-item">
-            <div class="basket-title">${currentBasketItem.amount} x ${pizzaData.name}</div>
-            <div class="basket-footer">
+            <div class="basket-item-header">
+                <span>${pizzaData.name}</span>
+                <button
+                    class="delete-btn"
+                    onclick="deleteItem(${pizzaData.id})">
+                    <img src="assets/icons/delete.png" alt="Delete">
+                </button>
+            </div>
+            <div class="basket-item-footer">
                 <div class="basket-controls">
-                    <button onclick="decreaseAmount(${currentBasketItem.id})">-</button>
+                    <button onclick="decreaseAmount(${pizzaData.id})">-</button>
                     <span>${currentBasketItem.amount}</span>
-                    <button onclick="increaseAmount(${currentBasketItem.id})">+</button>
-                </div>      
-                <span class="basket-price">${totalPrice.toFixed(2)} €</span>    
-            </div>    
-            
+                    <button onclick="increaseAmount(${pizzaData.id})">+</button>
+                </div>
+                <span>${totalPrice.toFixed(2)} €</span>
+            </div>
         </div>
     `;
 }
