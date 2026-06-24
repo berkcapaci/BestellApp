@@ -10,10 +10,12 @@ function getPizzaTemplate(currentPizza) {
                 <div class="pizza-top-row">
                     <h2>${currentPizza.name}</h2>
                     <span class="pizza-price">
-                        ${currentPizza.price.toFixed(2)} €
+                        ${currentPizza.price.toFixed(2)}€
                     </span>
                 </div>
+
                 <p>${currentPizza.description}</p>
+
                 <div class="pizza-actions">
                     <button class="add-button" onclick="addToBasket(${currentPizza.id})">
                         Add to basket
@@ -55,15 +57,6 @@ function getBasketItemTemplate (currentBasketItem, pizzaData){
             </div>    
             
         </div>
-    `;
-}
-
-function getBasketSubtotalTemplate (subtotal){
-    return`
-        <div class="basket-item">
-            <span>Subtotal</span>
-            <span>${subtotal.toFixed(2)} €</span>
-        </div>    
     `;
 }
 

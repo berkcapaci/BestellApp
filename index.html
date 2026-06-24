@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="style/mediaquery.css" />
   </head>
   <body>
-    <header class="content-wrapper">
-      <img src="assets/icons/Logo.png" alt="Logo" />
-      <img
-        class="menu-icon"
-        src="assets/icons/menubar.png"
-        alt="Menu icon, no function"
-      />
+    <header>
+      <div class="content-wrapper">
+        <img src="assets/icons/Logo.png" alt="Logo" />
+        <img
+          class="menu-icon"
+          src="assets/icons/menubar.png"
+          alt="Menu icon, no function"
+        />
+      </div>
     </header>
     <div class="hero-banner">
       <div class="content-wrapper">
@@ -34,26 +36,56 @@
       </div>
       <p>Authentic Italian pizza</p>
     </section>
+    <section class="menu-banner">
+      <div class="content-wrapper">
+        <img
+          class="menu-banner-icon"
+          src="assets/icons/pizza.png"
+          alt="Pizza"
+        />
+        <h2>Our Menu</h2>
+      </div>
+    </section>
 
     <main class="content-wrapper">
       <section id="pizza-content"></section>
       <aside id="basket-content"></aside>
     </main>
-    <footer class="content-wrapper">
-      <div class="copyright">
-        <img src="assets/icons/copyright.png" alt="Copyright" />
-        <p>2026 PizzeriaCapaci</p>
+    <footer>
+      <div class="content-wrapper">
+        <div class="copyright">
+          <img src="assets/icons/copyright.png" alt="Copyright" />
+          <p>2026 PizzeriaCapaci</p>
+        </div>
+        <a href="impressum.html">Imprint</a>
+        <div class="cookies">Cookie Preferences</div>
       </div>
-      <div>Imprint</div>
-      <div>Cookie Preferences</div>
     </footer>
     <nav class="mobile-nav">
-      <div class="mobile-nav-item">Home</div>
-      <div class="mobile-nav-item">Basket</div>
-      <div class="mobile-nav-item">Menu</div>
-      <div class="mobile-nav-item">Profile</div>
-    </nav>
+      <div class="mobile-nav-item" onclick="showMenu()">
+        <img src="assets/icons/home.png" alt="Home" />
+      </div>
 
+      <div class="mobile-nav-item active" onclick="toggleMobileBasket()">
+        <img src="assets/icons/basket.png" alt="Basket" />
+        <span class="basket-badge">0</span>
+      </div>
+
+      <div class="mobile-nav-item" onclick="scrollToMenu()">
+        <img src="assets/icons/menu.png" alt="Menu" />
+      </div>
+
+      <div class="mobile-nav-item" onclick="showProfile()">
+        <img src="assets/icons/profile.png" alt="Profile" />
+      </div>
+    </nav>
+    <div id="order-dialog" class="d-none" onclick="closeOrderDialog()">
+      <div class="dialog-content" onclick="event.stopPropagation()">
+        <img src="assets/img/order_confirmed.jpg" alt="Order confirmed" />
+        <h2>Thank you for your order!</h2>
+        <p>Your pizza is being prepared.</p>
+      </div>
+    </div>
     <script src="script/data.js"></script>
     <script src="script/templates.js"></script>
     <script src="script.js"></script>

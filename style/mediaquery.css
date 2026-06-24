@@ -1,7 +1,138 @@
 @media (max-width: 768px) {
 
+    body {
+        padding-bottom: 72px;
+    }
+
     main {
         flex-direction: column;
+    }
+
+    #basket-content.mobile-open {
+        display: block;
+        width: 100%;
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: #363534;
+        z-index: 200;
+        overflow-y: auto;
+        padding: 24px;
+    }
+
+    #basket-content.mobile-open h2 {
+        color: white;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    #basket-content.mobile-open .basket-item {
+        background-color: #F3E7DA;
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    #basket-content.mobile-open .basket-summary {
+        margin-top: 24px;
+        color: white;
+    }
+
+    #basket-content.mobile-open .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    #basket-content.mobile-open .total-row {
+        font-weight: 700;
+        margin-top: 16px;
+    }
+
+    header .content-wrapper {
+        height: 96px;
+        padding: 0 16px;
+    }
+
+    .hero-banner {
+        height: 180px;
+    }
+
+    .restaurant-profile img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .restaurant-info {
+        padding: 0 16px 16px;
+    }
+
+    .menu-banner .content-wrapper {
+        padding: 0 16px;
+    }
+
+    .menu-banner-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .menu-banner h2 {
+        font-size: 24px;
+    }
+
+    .pizza-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px;
+    }
+
+    .pizza-image {
+        width: 100%;
+        min-height: 120px;
+        max-height: 160px;
+        object-fit: cover;
+    }
+
+    .pizza-info {
+        padding: 8px 0 0 0;
+    }
+
+    .pizza-top-row h2 {
+        font-size: 16px;
+    }
+
+    .pizza-info p {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .pizza-price {
+        font-size: 16px;
+    }
+
+    .add-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    footer .content-wrapper {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        padding: 24px 16px;
+        min-height: auto;
+    }
+
+    .imprint {
+        order: 1;
+    }
+
+    .cookies {
+        order: 2;
+    }
+
+    .copyright {
+        order: 3;
     }
 
     .mobile-nav {
@@ -17,42 +148,11 @@
         z-index: 100;
     }
 
-    #basket-content {
+     #basket-content {
         display: none;
     }
 
-    header {
-    height: 96px;
-    padding: 0 16px;
-    }
-
-    .hero-banner {
-    height: 180px;
-    }
-
-    .restaurant-profile img {
-    width: 90px;
-    height: 90px;
-    }
-
-    .restaurant-info {
-    padding: 0 16px 16px;
-    }
-
-    .pizza-image {
-    width: 90px;
-    height: 90px;
-    }
-
-    .pizza-top-row h2 {
-    font-size: 18px;
-    }
-
-    .pizza-price {
-    font-size: 16px;
-    }
-
-    .pizza-card {
-    padding: 8px;
+    #basket-content.mobile-open {
+        display: block;
     }
 }

@@ -16,7 +16,11 @@ function renderBasket(){
     if (basket.length === 0){
     basketContentRef.innerHTML = getBasketTemplate();
     } else {
-        basketContentRef.innerHTML = '<h2>Your Basket</h2>';
+        basketContentRef.innerHTML = `
+            <h2>Your Basket</h2>
+            <div id="basket-list"></div>
+        `;
+        let basketItemsRef = document.getElementById('basket-list');
         let subtotal = 0;
         
         for (let i = 0; i < basket.length; i++) {
@@ -25,9 +29,10 @@ function renderBasket(){
                 pizza => pizza.id ===currentBasketItem.id
             );
             subtotal += currentBasketItem.amount * pizzaData.price;
-            basketContentRef.innerHTML += getBasketItemTemplate(
-                currentBasketItem, pizzaData
-            );   
+             basketItemsRef.innerHTML += getBasketItemTemplate(
+                currentBasketItem,
+                pizzaData
+            );
         }
         let deliveryCost = 5.00 ;
         if (subtotal>=49.99){
@@ -59,18 +64,21 @@ function addToBasket(id){
     renderBasket();    
 }
 
-function increaseAmount(id){
+function increaseAmount(id) {
+    let basketList = document.getElementById('basket-list');
+    let scrollPosition = basketList ? basketList.scrollTop : 0;
     let basketItem = basket.find(item => item.id === id);
-
     if (basketItem) {
         basketItem.amount++;
     }
     renderBasket();
+    document.getElementById('basket-list').scrollTop = scrollPosition;
 }
 
-function decreaseAmount(id){
+function decreaseAmount(id) {
+    let basketList = document.getElementById('basket-list');
+    let scrollPosition = basketList ? basketList.scrollTop : 0;
     let basketItem = basket.find(item => item.id === id);
-
     if (basketItem.amount > 1) {
         basketItem.amount--;
     } else {
@@ -78,12 +86,20 @@ function decreaseAmount(id){
         basket.splice(index, 1);
     }
     renderBasket();
+    let newBasketList = document.getElementById('basket-list');
+    if (newBasketList) {
+        newBasketList.scrollTop = scrollPosition;
+    }
 }
 
 function orderNow(){
-    basket= [];
-    renderBasket();
     showOrderDialog();
+
+    setTimeout(() => {
+        basket = [];
+        renderBasket();
+        showMenu();
+    }, 3000);
 }
 
 function showOrderDialog(){
@@ -96,3 +112,23 @@ function showOrderDialog(){
 function closeOrderDialog(){
     document.getElementById('order-dialog').classList.add('d-none');
 }
+
+function toggleMobileBasket() {
+    let basket = document.getElementById('basket-content');
+    let pizzaContent = document.getElementById('pizza-content');
+
+    basket.classList.toggle('mobile-open');
+    pizzaContent.classList.toggle('d-none');
+}
+
+function showMenu() {
+    document.getElementById('pizza-content').classList.remove('d-none');
+    document.getElementById('basket-content').classList.remove('mobile-open');
+}
+
+function scrollToMenu() {
+    document.querySelector('.menu-banner').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showProfile() { alert('Profile page coming soon'); }
+

@@ -16,14 +16,19 @@ main {
 }
 
 header{
+    background-color: #E76C1F;
+    position: relative;
+    z-index: 2;
+}
+
+header .content-wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
     height: 128px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 32px;
-    background-color: #E76C1F;
-    position: relative;
-    z-index: 2;
 }
 
 header img {
@@ -68,7 +73,7 @@ header img {
 .restaurant-profile {
     display: flex;
     justify-content: center;
-    margin-top: -60px;
+    margin-top: -70px;
 }
 
 .restaurant-meta{
@@ -77,20 +82,47 @@ header img {
 }
 
 .restaurant-profile img {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     background-color:#e5e5e5;
     border-radius: 50%;
-    border: 6px solid white;
+    border: 8px solid white;
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     position: relative;
     z-index: 2;
 }
 
+.menu-banner {
+    background-color: #E76C1F;
+}
+
+.menu-banner .content-wrapper {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    margin-bottom: 32px ;
+}
+
+.menu-banner-icon {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.menu-banner h2 {
+    color: white;
+    font-family: 'Palanquin Dark';
+    font-size: 32px;
+    margin: 0;
+}
+
 .pizza-card {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    background-color: #FDEADC;
     border: 1px solid #e5e5e5;
     border-radius: 12px;
     padding: 12px;
@@ -122,6 +154,12 @@ header img {
     margin: 0;
 }
 
+.pizza-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
 .pizza-info p {
     font-family: 'Palanquin';
     font-weight: 500;
@@ -133,12 +171,6 @@ header img {
     font-family: 'Palanquin';
     font-weight: 700;
     font-size: 24px;
-}
-
-.pizza-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 12px;
 }
 
 .add-button {
@@ -165,10 +197,21 @@ header img {
     position: sticky;
     top: 16px;
     align-self: flex-start;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: none;
-    padding: 16px;
+    background-color: #363534;
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+}
+
+#basket-content h2 {
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+#basket-list  {
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .empty-basket{
@@ -180,7 +223,7 @@ header img {
     color: #FDEADC;
     background-color: #363534;
     border-radius: 24px;
-    padding: 32px;
+    padding: 32px 16px;
     min-height: 600px;
 }
 
@@ -205,8 +248,12 @@ header img {
 }
 
 .basket-item{
-    padding: 12px 0px;
-    border-bottom: 1px solid #e5e5e5;
+    padding: 12px;
+    background-color: #F3E7DA;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border-bottom: none;
+    color: #363534;
 }
 
 .basket-title {
@@ -242,6 +289,8 @@ header img {
 
 .basket-summary {
     margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid #f2f2f2;
 }
 
 .summary-row{
@@ -262,7 +311,7 @@ header img {
     height: 48px;
     margin-top: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     background-color: #E76C1F;
     color: white;
@@ -277,10 +326,11 @@ header img {
 #order-dialog {
     position: fixed;
     inset: 0;
-    background-color:  rgba (0,0,0,0.5);
+    background-color:  rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
 }
 
 .dialog-content {
@@ -295,21 +345,32 @@ header img {
     gap: 26px;
 }
 
+.dialog-content img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+}
+
 .d-none{
     display: none !important;
 }
 
 footer {
+    background-color: #E76C1F;
+}
+
+footer .content-wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     min-height: 128px;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     padding-bottom: 32px;
     gap: 72px;
-    background-color: #E76C1F;
     color: white;
     font-family: 'Palanquin';
-    font-weight: 400 ;
+    font-weight: 400;
 }
 
 .copyright{
@@ -326,4 +387,29 @@ footer {
 
 .mobile-nav{
     display: none;
+}
+
+.mobile-nav-item {
+    position: relative;
+}
+
+.mobile-nav-item img {
+    width: 32px;
+    height: 32px;
+}
+
+.basket-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E76C1F;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
 }
